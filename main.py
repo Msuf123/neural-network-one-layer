@@ -1,28 +1,27 @@
+# GRADED FUNCTION: T_stretch
 import numpy as np
-def T(v):
-    w = np.zeros((3, 1))
-    w[0, 0] = 3 * v[0, 0]
-    w[2, 0] = -2 * v[1, 0]
+
+
+def T_stretch(a, v):
+    """
+    Performs a 2D stretching transformation on a vector v using a stretching factor a.
+
+    Args:
+        a (float): The stretching factor.
+        v (numpy.array): The vector (or vectors) to be stretched.
+
+    Returns:
+        numpy.array: The stretched vector.
+    """
+
+    ### START CODE HERE ###
+    # Define the transformation matrix
+    T = np.array([[1*a,0],[0,1*a]])
+
+    # Compute the transformation
+    w = v @ T
+    ### END CODE HERE ###
 
     return w
-
-
-v = np.array([[3], [5]])
-w = T(v)
-print(w)
-
-print("Original vector:\n", v, "\n\n Result of the transformation:\n", w)
-
-
-def L(v):
-    A = np.array([[3, 0], [0, 0], [0, -2]])
-    print("Transformation matrix:\n", A, "\n")
-    w = A @ v
-
-    return w
-
-
-v = np.array([[3], [5]])
-w = L(v)
-
-print("Original vector:\n", v, "\n\n Result of the transformation:\n", w)
+arr=np.array([[1,2],[3,4]])
+print(T_stretch(3,arr))
