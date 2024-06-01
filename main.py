@@ -2,26 +2,31 @@
 import numpy as np
 
 
-def T_stretch(a, v):
+# GRADED FUNCTION: T_hshear
+
+def T_hshear(m, v):
     """
-    Performs a 2D stretching transformation on a vector v using a stretching factor a.
+    Performs a 2D horizontal shearing transformation on an array v using a shearing factor m.
 
     Args:
-        a (float): The stretching factor.
-        v (numpy.array): The vector (or vectors) to be stretched.
+        m (float): The shearing factor.
+        v (np.array): The array to be sheared.
 
     Returns:
-        numpy.array: The stretched vector.
+        np.array: The sheared array.
     """
 
     ### START CODE HERE ###
     # Define the transformation matrix
-    T = np.array([[1*a,0],[0,1*a]])
+    T = np.array([[1, m],
+                  [0, 1]])
 
-    # Compute the transformation
-    w = v @ T
+    w = T @ v
+
     ### END CODE HERE ###
 
     return w
-arr=np.array([[1,2],[3,4]])
-print(T_stretch(3,arr))
+
+
+arr=np.array([[1,2],[9,1],[0,2]])
+print(T_hshear(3,arr))
